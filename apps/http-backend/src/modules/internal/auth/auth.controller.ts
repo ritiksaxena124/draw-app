@@ -4,11 +4,11 @@ import { ApiResponse } from "../../../lib/utils/api-response.util";
 import { HttpStatusCode } from "../../../constants/http-status.constant";
 import { authService } from "./auth.service";
 
-class Auth {
+class AuthController {
     login = asyncHandler(async (req: Request, res: Response) => {
         const data = await authService.login();
         res.status(HttpStatusCode.OK).json(new ApiResponse(HttpStatusCode.OK, data, "Login successful!"));
     })
 }
 
-export const authController = new Auth();
+export const authController = new AuthController();
