@@ -1,6 +1,3 @@
-import express, { Express } from 'express';
-const app: Express = express();
+import { server } from './server';
 
-app.listen(3000, () => {
-    console.log('HTTP backend is running on port 3000');
-});
+export { server as httpBackendServer };
