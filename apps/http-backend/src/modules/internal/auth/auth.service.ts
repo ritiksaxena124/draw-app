@@ -2,7 +2,6 @@ import { JWT_SECRET } from "@repo/backend-common/config/jwt";
 import { HttpStatusCode, HttpStatusMsg } from "../../../constants/http-status.constant";
 import { ApiError } from "../../../lib/utils/api-error.util";
 import jwt from "jsonwebtoken";
-
 class AuthService {
     async login() {
         try {
