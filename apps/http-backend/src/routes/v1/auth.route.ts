@@ -5,7 +5,8 @@ import { ApiPath } from "../../constants/api-paths.constant";
 
 const router = Router();
 
-router.route(ApiPath.LOGIN).get(authController.login);
+router.route(ApiPath.LOGIN).post(authController.login);
+router.route(ApiPath.REGISTER_USER).post(authController.registerUser)
 
 router.use(handle404Error)
 
