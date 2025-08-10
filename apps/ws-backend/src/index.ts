@@ -1,6 +1,7 @@
 import { WebSocketServer } from 'ws';
 import jwt from 'jsonwebtoken';
 import { JsonWebTokenError } from 'jsonwebtoken';
+import { JWT_SECRET } from '@repo/backend-common/config/jwt';
 
 const wss = new WebSocketServer({ port: 8080 });
 
@@ -21,7 +22,7 @@ wss.on('connection', (ws, req) => {
     }
     // check if the token is valid
     try {
-        jwt.verify(token, 'jwt secret');
+        jwt.verify(token, JWT_SECRET);
     } catch (err) {
         if (err instanceof JsonWebTokenError) {
             console.error("Invalid JWT token:", err.message);

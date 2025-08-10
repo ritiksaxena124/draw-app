@@ -1,3 +1,4 @@
+import { JWT_SECRET } from "@repo/backend-common/config/jwt";
 import { HttpStatusCode, HttpStatusMsg } from "../../../constants/http-status.constant";
 import { ApiError } from "../../../lib/utils/api-error.util";
 import jwt from "jsonwebtoken";
@@ -8,7 +9,7 @@ class AuthService {
             const userId = 123;
             const accessToken = jwt.sign({
                 userId
-            }, 'jwt secret', {
+            }, JWT_SECRET, {
                 expiresIn: '1h'
             }, (err, token) => {
                 if (err) {
@@ -19,7 +20,7 @@ class AuthService {
 
             const refreshToken = jwt.sign({
                 userId
-            }, 'jwt secret', {
+            }, JWT_SECRET, {
                 expiresIn: '7d'
             }, (err, token) => {
                 if (err) {
